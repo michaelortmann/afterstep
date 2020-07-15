@@ -175,7 +175,7 @@ char *exclude_pattern_override = NULL ;
 char *title_override = NULL, *icon_title_override = NULL ;
 char *border_color_override = NULL ;
 
-static inline int
+static int
 find_tab_for_client (Window client)
 {
     ASWinTab *tabs = PVECTOR_HEAD(ASWinTab,WinTabsState.tabs);
@@ -186,7 +186,7 @@ find_tab_for_client (Window client)
 	return -1;
 }
 
-static inline int
+static int
 find_tab_pressed ()
 {
     ASWinTab *tabs = PVECTOR_HEAD(ASWinTab,WinTabsState.tabs);
@@ -196,7 +196,7 @@ find_tab_pressed ()
 	return -1;
 }
 
-static inline int
+static int
 find_group_owner (ASWinTabGroup *group)
 {
     ASWinTab *tabs = PVECTOR_HEAD(ASWinTab,WinTabsState.tabs);
@@ -207,7 +207,7 @@ find_group_owner (ASWinTabGroup *group)
 	return -1;
 }
 
-static inline int
+static int
 find_tab_for_group (ASWinTabGroup *group, int after_index)
 {
     ASWinTab *tabs = PVECTOR_HEAD(ASWinTab,WinTabsState.tabs);
@@ -1463,7 +1463,7 @@ delete_tab( int index )
 		select_tab (find_tab_for_client (client_to_select));
 }
 
-static inline int
+static int
 get_restricted_width (ASWinTab *tab, int max_width)
 {
     if( tab->calculated_width < Config->min_tab_width )

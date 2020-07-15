@@ -112,14 +112,14 @@ create_property( int id, ASPropContentsType type, const char *name, Bool tree )
 	return prop;
 }
 
-inline void
+void
 append_property( ASProperty *owner, ASProperty *prop )
 {
 	if( owner && prop )
 		append_bidirelem( owner->sub_props, prop );	
 }	 
 
-inline void
+void
 prepend_property( ASProperty *owner, ASProperty *prop )
 {
 	if( owner && prop )

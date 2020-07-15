@@ -1713,7 +1713,7 @@ get_bits (unsigned long mask)
  * combined adding, note that we don't use 32'd bit as it is a sign bit */
 
 #ifndef X_DISPLAY_MISSING
-static inline void
+static void
 query_pixel_color( ASVisual *asv, unsigned long pixel, CARD32 *r, CARD32 *g, CARD32 *b )
 {
 	XColor xcol ;

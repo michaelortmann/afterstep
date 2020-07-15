@@ -31,7 +31,7 @@
 #include "canvas.h"
 
 
-inline Bool
+Bool
 get_current_canvas_geometry (ASCanvas * pc, int *px, int *py,
 														 unsigned int *pwidth, unsigned int *pheight,
 														 unsigned int *pbw)
@@ -431,7 +431,7 @@ Bool draw_canvas_mask (ASCanvas * pc, ASImage * im, int x, int y)
 	return res;
 }
 
-inline Bool
+Bool
 get_current_canvas_size (ASCanvas * pc, unsigned int *pwidth,
 												 unsigned int *pheight)
 {

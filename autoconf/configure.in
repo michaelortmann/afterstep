@@ -361,7 +361,6 @@ afterimage_lib=
 
 dnl# let's check for endiannes of our box
 AC_C_BIGENDIAN
-AC_C_INLINE
 
 dnl# Check for headers
 AC_HEADER_TIME

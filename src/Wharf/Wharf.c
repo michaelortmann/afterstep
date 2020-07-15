@@ -218,7 +218,7 @@ Bool display_wharf_folder (ASWharfFolder * aswf, int left, int top,
 													 int right, int bottom);
 Bool display_main_folder ();
 void withdraw_wharf_folder (ASWharfFolder * aswf);
-static inline void withdraw_wharf_subfolders (ASWharfFolder * aswf);
+static void withdraw_wharf_subfolders (ASWharfFolder * aswf);
 void on_wharf_moveresize (ASEvent * event);
 void destroy_wharf_folder (ASWharfFolder ** paswf);
 void on_wharf_pressed (ASEvent * event);
@@ -2323,9 +2323,9 @@ display_wharf_folder (ASWharfFolder * aswf, int left, int top, int right,
 	return True;
 }
 
-static inline void unmap_wharf_folder (ASWharfFolder * aswf);
+static void unmap_wharf_folder (ASWharfFolder * aswf);
 
-static inline void unmap_wharf_subfolders (ASWharfFolder * aswf)
+static void unmap_wharf_subfolders (ASWharfFolder * aswf)
 {
 	int i = aswf->buttons_num;
 	while (--i >= 0) {
@@ -2335,7 +2335,7 @@ static inline void unmap_wharf_subfolders (ASWharfFolder * aswf)
 	}
 }
 
-static inline void unmap_wharf_folder (ASWharfFolder * aswf)
+static void unmap_wharf_folder (ASWharfFolder * aswf)
 {
 	LOCAL_DEBUG_OUT ("unmapping canvas %p at %dx%d%+d%+d", aswf->canvas,
 									 aswf->canvas->width, aswf->canvas->height,
@@ -2378,7 +2378,7 @@ void withdraw_wharf_folder (ASWharfFolder * aswf)
 	sleep_a_millisec (10);
 }
 
-static inline void withdraw_wharf_subfolders (ASWharfFolder * aswf)
+static void withdraw_wharf_subfolders (ASWharfFolder * aswf)
 {
 	int i = aswf->buttons_num;
 	while (--i >= 0) {

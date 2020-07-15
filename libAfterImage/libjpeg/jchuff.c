@@ -302,7 +302,6 @@ dump_buffer_e (huff_entropy_ptr entropy)
  * between calls, so 24 bits are sufficient.
  */
 
-INLINE
 LOCAL(boolean)
 emit_bits_s (working_state * state, unsigned int code, int size)
 /* Emit some bits; return TRUE if successful, FALSE if must suspend */
@@ -341,7 +340,6 @@ emit_bits_s (working_state * state, unsigned int code, int size)
 }
 
 
-INLINE
 LOCAL(void)
 emit_bits_e (huff_entropy_ptr entropy, unsigned int code, int size)
 /* Emit some bits, unless we are in gather mode */
@@ -406,7 +404,6 @@ flush_bits_e (huff_entropy_ptr entropy)
  * Emit (or just count) a Huffman symbol.
  */
 
-INLINE
 LOCAL(void)
 emit_dc_symbol (huff_entropy_ptr entropy, int tbl_no, int symbol)
 {
@@ -419,7 +416,6 @@ emit_dc_symbol (huff_entropy_ptr entropy, int tbl_no, int symbol)
 }
 
 
-INLINE
 LOCAL(void)
 emit_ac_symbol (huff_entropy_ptr entropy, int tbl_no, int symbol)
 {

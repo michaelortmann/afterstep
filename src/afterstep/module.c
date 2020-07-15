@@ -501,7 +501,7 @@ void FlushAllQueues ()
 
 
 #include <sys/errno.h>
-static inline int
+static int
 PositiveWrite (unsigned int channel, send_data_type * ptr, int size)
 {
 	module_t *module = &(MODULES_LIST[channel]);
@@ -1148,7 +1148,7 @@ void broadcast_config (send_data_type event_type, ASWindow * t)
 /* module list menus regeneration :                                             */
 /********************************************************************************/
 
-static inline void
+static void
 module_t2func_data (FunctionCode func, module_t * module,
 										FunctionData * fdata, char *scut)
 {

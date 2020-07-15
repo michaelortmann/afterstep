@@ -110,7 +110,7 @@ ASVisual __transform_fake_asv = {0};
 #define AVERAGE_COLOR2(c1,c2)				(((c1)+(c2))<<(QUANT_ERR_BITS-1))
 #define AVERAGE_COLORN(T,N)					(((T)<<QUANT_ERR_BITS)/N)
 
-static inline void
+static void
 enlarge_component12( register CARD32 *src, register CARD32 *dst, int *scales, int len )
 {/* expected len >= 2  */
 	register int i = 0, k = 0;
@@ -144,7 +144,7 @@ enlarge_component12( register CARD32 *src, register CARD32 *dst, int *scales, in
 	dst[k+1] = INTERPOLATE_COLOR1(src[i+1]);
 }
 
-static inline void
+static void
 enlarge_component23( register CARD32 *src, register CARD32 *dst, int *scales, int len )
 {/* expected len >= 2  */
 	register int i = 0, k = 0;
@@ -205,7 +205,7 @@ enlarge_component23( register CARD32 *src, register CARD32 *dst, int *scales, in
 /* this case is more complex since we cannot really hardcode coefficients
  * visible artifacts on smooth gradient-like images
  */
-static inline void
+static void
 enlarge_component( register CARD32 *src, register CARD32 *dst, int *scales, int len )
 {/* we skip all checks as it is static function and we want to optimize it
   * as much as possible */
@@ -253,7 +253,7 @@ enlarge_component( register CARD32 *src, register CARD32 *dst, int *scales, int 
 /*LOCAL_DEBUG_OUT( "%d pixels written", k );*/
 }
 
-static inline void
+static void
 enlarge_component_dumb( register CARD32 *src, register CARD32 *dst, int *scales, int len )
 {/* we skip all checks as it is static function and we want to optimize it
   * as much as possible */
@@ -270,7 +270,7 @@ enlarge_component_dumb( register CARD32 *src, register CARD32 *dst, int *scales,
 }
 
 /* this will shrink array based on count of items in src per one dst item with averaging */
-static inline void
+static void
 shrink_component( register CARD32 *src, register CARD32 *dst, int *scales, int len )
 {/* we skip all checks as it is static function and we want to optimize it
   * as much as possible */
@@ -301,7 +301,7 @@ shrink_component( register CARD32 *src, register CARD32 *dst, int *scales, int l
 		}
 	}
 }
-static inline void
+static void
 shrink_component11( register CARD32 *src, register CARD32 *dst, int *scales, int len )
 {
 	register int i ;
@@ -310,7 +310,7 @@ shrink_component11( register CARD32 *src, register CARD32 *dst, int *scales, int
 }
 
 
-static inline void
+static void
 reverse_component( register CARD32 *src, register CARD32 *dst, int *unused, int len )
 {
 	register int i = 0;
@@ -321,7 +321,7 @@ reverse_component( register CARD32 *src, register CARD32 *dst, int *unused, int 
 	}while(++i < len );
 }
 
-static inline void
+static void
 add_component( CARD32 *src, CARD32 *incr, int *scales, int len )
 {
 	len += len&0x01;
@@ -371,7 +371,7 @@ add_component( CARD32 *src, CARD32 *incr, int *scales, int len )
 }
 
 #ifdef NEED_RBITSHIFT_FUNCS
-static inline void
+static void
 rbitshift_component( register CARD32 *src, register CARD32 *dst, int shift, int len )
 {
 	register int i ;
@@ -380,7 +380,7 @@ rbitshift_component( register CARD32 *src, register CARD32 *dst, int shift, int 
 }
 #endif
 
-static inline void
+static void
 start_component_interpolation( CARD32 *c1, CARD32 *c2, CARD32 *c3, CARD32 *c4, register CARD32 *T, register CARD32 *step, int S, int len)
 {
 	register int i;
@@ -420,7 +420,7 @@ component_interpolation_hardcoded( CARD32 *c1, CARD32 *c2, CARD32 *c3, CARD32 *c
 }
 
 #ifdef NEED_RBITSHIFT_FUNCS
-static inline void
+static void
 divide_component_mod( register CARD32 *data, CARD16 ratio, int len )
 {
 	register int i ;
@@ -428,7 +428,7 @@ divide_component_mod( register CARD32 *data, CARD16 ratio, int len )
 		data[i] /= ratio;
 }
 
-static inline void
+static void
 rbitshift_component_mod( register CARD32 *data, int bits, int len )
 {
 	register int i ;
@@ -445,7 +445,7 @@ print_component( register CARD32 *data, int nonsense, int len )
 	fprintf( stderr, "\n");
 }
 
-static inline void
+static void
 tint_component_mod( register CARD32 *data, CARD16 ratio, int len )
 {
 	register int i ;
@@ -463,7 +463,7 @@ tint_component_mod( register CARD32 *data, CARD16 ratio, int len )
 			data[i] = data[i]*ratio;
 }
 
-static inline void
+static void
 make_component_gradient16( register CARD32 *data, CARD16 from, CARD16 to, CARD8 seed, int len )
 {
 	register int i ;
@@ -486,7 +486,7 @@ make_component_gradient16( register CARD32 *data, CARD16 from, CARD16 to, CARD8 
 }
 
 
-static inline void
+static void
 copytintpad_scanline( ASScanline *src, ASScanline *dst, int offset, ARGB32 tint )
 {
 	register int i ;
@@ -854,7 +854,7 @@ scale_image_up_dumb( ASImageDecoder *imdec, ASImageOutput *imout, int h_ratio, i
 }
 
 
-static inline ASImage *
+static ASImage *
 create_destination_image( unsigned int width, unsigned int height, ASAltImFormats format, 
 						  unsigned int compression, ARGB32 back_color )
 {
@@ -2057,7 +2057,7 @@ create_asimage_from_vector( ASVisual *asv, double *vector,
 #define PI 3.141592526
 
 #if 0
-static inline void
+static void
 gauss_component(CARD32 *src, CARD32 *dst, int radius, double* gauss, int len)
 {
 	int x, j, r = radius - 1;
@@ -2080,7 +2080,7 @@ static void calc_gauss_int(int radius, GAUSS_COEFF_TYPE* gauss, GAUSS_COEFF_TYPE
 #define gauss_data_t CARD32
 #define gauss_var_t int
 
-static inline void
+static void
 gauss_component_int(gauss_data_t *s1, gauss_data_t *d1, int radius, GAUSS_COEFF_TYPE* gauss, GAUSS_COEFF_TYPE* gauss_sums, int len)
 {
 #define DEFINE_GAUS_TMP_VAR		CARD32 *xs1 = &s1[x]; CARD32 v1 = xs1[0]*gauss[0]
@@ -2185,7 +2185,7 @@ gauss_component_int(gauss_data_t *s1, gauss_data_t *d1, int radius, GAUSS_COEFF_
 /* this ain't worth a crap it seems. The code below seems to perform 20% slower then 
    plain and simple one component at a time 
  */
-static inline void
+static void
 gauss_component_int2(CARD32 *s1, CARD32 *d1, CARD32 *s2, CARD32 *d2, int radius, GAUSS_COEFF_TYPE* gauss, GAUSS_COEFF_TYPE* gauss_sums, int len)
 {
 #define MIDDLE_STRETCH_GAUSS do{GAUSS_COEFF_TYPE g = gauss[j]; \
@@ -2260,7 +2260,7 @@ gauss_component_int2(CARD32 *s1, CARD32 *d1, CARD32 *s2, CARD32 *d2, int radius,
 }
 #endif
 
-static inline void
+static void
 load_gauss_scanline(ASScanline *result, ASImageDecoder *imdec, int horz, GAUSS_COEFF_TYPE *sgauss, GAUSS_COEFF_TYPE *sgauss_sums, ASFlagType filter )
 {
     ASFlagType lf; 

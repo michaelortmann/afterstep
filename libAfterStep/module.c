@@ -107,7 +107,7 @@ int get_module_in_fd ()
 }
 
 
-static inline void send_module_msg_header (Window w, CARD32 bytes)
+static void send_module_msg_header (Window w, CARD32 bytes)
 {
 	if (as_module_out_buffer.fd >= 0) {
 		CARD32 w32 = w;
@@ -117,7 +117,7 @@ static inline void send_module_msg_header (Window w, CARD32 bytes)
 	}
 }
 
-static inline void send_module_msg_tail ()
+static void send_module_msg_tail ()
 {
 	if (as_module_out_buffer.fd >= 0) {
 		CARD32 cont = F_FUNCTIONS_NUM;
@@ -127,14 +127,14 @@ static inline void send_module_msg_tail ()
 	}
 }
 
-static inline void send_module_msg_raw (void *data, size_t bytes)
+static void send_module_msg_raw (void *data, size_t bytes)
 {
 	if (as_module_out_buffer.fd >= 0) {
 		socket_buffered_write (&as_module_out_buffer, data, bytes);
 	}
 }
 
-static inline void
+static void
 send_module_msg_function (CARD32 func,
 													const char *name, const char *text,
 													const send_signed_data_type * func_val,

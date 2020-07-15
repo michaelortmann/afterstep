@@ -335,7 +335,7 @@ static int make_shade_animation_step (ASWindow * asw, ASOrientation * od)
 	return step_size;
 }
 
-inline static Bool
+static Bool
 move_resize_frame_bar (ASTBarData * tbar, ASCanvas * canvas, int normal_x,
 											 int normal_y, unsigned int normal_width,
 											 unsigned int normal_height, Bool force_render)
@@ -349,7 +349,7 @@ move_resize_frame_bar (ASTBarData * tbar, ASCanvas * canvas, int normal_x,
 	return force_render;
 }
 
-inline static Bool
+static Bool
 move_resize_corner (ASTBarData * bar, ASCanvas * canvas,
 										ASOrientation * od, int normal_y,
 										unsigned int normal_width, unsigned int normal_height,
@@ -375,7 +375,7 @@ move_resize_corner (ASTBarData * bar, ASCanvas * canvas,
 																h, force_render);
 }
 
-inline static Bool
+static Bool
 move_resize_longbar (ASTBarData * bar, ASCanvas * canvas,
 										 ASOrientation * od, int normal_offset,
 										 unsigned int normal_length, unsigned int corner_size1,

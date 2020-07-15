@@ -329,7 +329,7 @@ static struct {
 /****************************************************************
  * Low level parsing code :
  ****************************************************************/
-static inline char
+static char
 get_xpm_char( ASXpmFile *xpm_file )
 {
 #ifdef HAVE_LIBXPM
@@ -364,7 +364,7 @@ get_xpm_char( ASXpmFile *xpm_file )
 #endif
 }
 
-static inline void
+static void
 unget_xpm_char( ASXpmFile *xpm_file, char c )
 {
 #ifndef HAVE_LIBXPM
@@ -376,7 +376,7 @@ unget_xpm_char( ASXpmFile *xpm_file, char c )
 #endif
 }
 
-static inline void
+static void
 skip_xpm_comments( ASXpmFile *xpm_file )
 {
 	char c;

@@ -66,7 +66,7 @@ flush_asbidirlist_memory_pool()
 }
 
 
-static inline ASBiDirElem *
+static ASBiDirElem *
 find_bidirelem( ASBiDirList *l, void *data )
 {
 	ASBiDirElem *elem ;

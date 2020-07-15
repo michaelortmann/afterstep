@@ -193,7 +193,7 @@ apply_tool_2D( ASDrawContext *ctx, int curr_x, int curr_y, CARD32 ratio )
 	}
 }	   
 
-static inline void alpha_blend_point_argb32( CARD32 *dst, CARD32 value, CARD32 ratio)
+static void alpha_blend_point_argb32( CARD32 *dst, CARD32 value, CARD32 ratio)
 {
 	CARD32 ta = (ARGB32_ALPHA8(value)*ratio)/255;
 
@@ -640,7 +640,7 @@ ctx_draw_line_solid_aa( ASDrawContext *ctx, int from_x, int from_y, int to_x, in
 #define SUPERSAMPLING_BITS	8
 #define SUPERSAMPLING_MASK	0x000000FF
 
-static inline void 
+static void 
 render_supersampled_pixel( ASDrawContext *ctx, int xs, int ys )
 {
 	if( xs >= 0 && ys >= 0 )
@@ -1211,7 +1211,7 @@ const signed int ASIM_SIN[91]=
 	0x0000FCD9,0x0000FD82,0x0000FE18,0x0000FE99,0x0000FF07,0x0000FF60,0x0000FFA6,0x0000FFD8,0x0000FFF6,0x00010000
 };
 
-static inline int asim_sin( int angle )
+static int asim_sin( int angle )
 {
 	while( angle >= 360 ) 
 		angle -= 360 ;

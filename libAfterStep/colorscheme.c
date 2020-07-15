@@ -129,7 +129,7 @@ int compare_color_lightness (ARGB32 c1, ARGB32 c2)
 			ASCS_BLACK_O_WHITE_CRITERIA16_VAL (red2, green2, blue2);
 }
 
-inline void
+void
 make_grad_argb (ASColorScheme * cs, int id, ARGB32 base_alpha16,
 								int hue360, int sat100, int val100, Bool base)
 {
@@ -154,7 +154,7 @@ make_grad_argb (ASColorScheme * cs, int id, ARGB32 base_alpha16,
 													light_val);
 }
 
-static inline ARGB32 MAKE_ARGB32_SHADE100 (CARD32 a, int s100)
+static ARGB32 MAKE_ARGB32_SHADE100 (CARD32 a, int s100)
 {
 	CARD32 s8 = percent2val16 (s100) >> 8;
 
@@ -162,7 +162,7 @@ static inline ARGB32 MAKE_ARGB32_SHADE100 (CARD32 a, int s100)
 	return MAKE_ARGB32_GREY8 (a, s8);
 }
 
-inline void
+void
 make_mono_grad_argb (ARGB32 * grad, ARGB32 base_alpha16, int shade100,
 										 int *val_ret)
 {
@@ -186,7 +186,7 @@ make_mono_grad_argb (ARGB32 * grad, ARGB32 base_alpha16, int shade100,
 	}
 }
 
-inline int offset_shade (int shade, int offset, Bool rollover)
+int offset_shade (int shade, int offset, Bool rollover)
 {
 	shade += offset;
 	if (shade > 100) {

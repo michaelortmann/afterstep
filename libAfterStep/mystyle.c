@@ -80,7 +80,7 @@ CARD8 make_component_hilite (int cmp)
 }
 
 /* This routine computes the hilite color from the background color */
-inline ARGB32 GetHilite (ARGB32 background)
+ARGB32 GetHilite (ARGB32 background)
 {
 	CARD32 a = make_component_hilite (ARGB32_ALPHA8 (background));
 	CARD32 r = make_component_hilite (ARGB32_RED8 (background));
@@ -91,7 +91,7 @@ inline ARGB32 GetHilite (ARGB32 background)
 }
 
 /* This routine computes the shadow color from the background color */
-inline ARGB32 GetShadow (ARGB32 background)
+ARGB32 GetShadow (ARGB32 background)
 {
 	CARD16 a, r, g, b;
 
@@ -103,7 +103,7 @@ inline ARGB32 GetShadow (ARGB32 background)
 	return MAKE_ARGB32 (a, r, g, b);
 }
 
-inline ARGB32 GetAverage (ARGB32 foreground, ARGB32 background)
+ARGB32 GetAverage (ARGB32 foreground, ARGB32 background)
 {
 	CARD16 a, r, g, b;
 
@@ -357,7 +357,7 @@ merge_scanlines_func mystyle_translate_texture_type (int texture_type)
 	return mystyle_merge_scanlines_func_xref[index];
 }
 
-static inline ASImage *mystyle_flip_image (ASImage * im, int width,
+static ASImage *mystyle_flip_image (ASImage * im, int width,
 																					 int height, int flip)
 {
 	ASImage *tmp;

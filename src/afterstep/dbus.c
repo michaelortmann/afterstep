@@ -552,7 +552,7 @@ use dbus__connection_send () to send it.
 
 */
 
-static inline Bool set_sm_client_id (DBusMessageIter * iter,
+static Bool set_sm_client_id (DBusMessageIter * iter,
 																		 const char *sm_client_id)
 {
 	if (sm_client_id == NULL || sm_client_id[0] == '\0')

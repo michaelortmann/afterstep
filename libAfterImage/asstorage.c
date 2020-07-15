@@ -82,7 +82,7 @@ ASStorage *_as_default_storage = NULL ;
 static size_t UsedMemory = 0 ;
 static size_t UncompressedSize = 0, CompressedSize = 0 ;
 
-static inline ASStorageID 
+static ASStorageID 
 make_asstorage_id( int block_id, int slot_id )
 {
 	ASStorageID id = 0 ;
@@ -1052,7 +1052,7 @@ select_storage_block( ASStorage *storage, int compressed_size, ASFlagType flags,
 	return new_block+1;
 }
 
-static inline void
+static void
 destroy_storage_slot( ASStorageBlock *block, int index )
 {
 	ASStorageSlot **slots = block->slots ;
@@ -1075,7 +1075,7 @@ destroy_storage_slot( ASStorageBlock *block, int index )
 		++(block->unused_count);
 }
 
-static inline void 
+static void 
 join_storage_slots( ASStorageBlock *block, ASStorageSlot *from_slot, ASStorageSlot *to_slot )
 {
 	ASStorageSlot *s, *next = AS_STORAGE_GetNextSlot(from_slot);
@@ -1092,7 +1092,7 @@ join_storage_slots( ASStorageBlock *block, ASStorageSlot *from_slot, ASStorageSl
 }
 
 
-static inline void
+static void
 defragment_storage_block( ASStorageBlock *block )
 {
 	ASStorageSlot *brk, *next_used, **slots = block->slots ;
@@ -1261,7 +1261,7 @@ select_storage_slot( ASStorageBlock *block, int size )
 	return block->slots[i];		   
 }
 
-static inline Bool
+static Bool
 split_storage_slot( ASStorageBlock *block, ASStorageSlot *slot, int to_size )
 {
 	int old_size = ASStorageSlot_USABLE_SIZE(slot) ;
@@ -1425,7 +1425,7 @@ store_compressed_data( ASStorage *storage, CARD8* data, int size, int compressed
 
 
 
-static inline ASStorageBlock *
+static ASStorageBlock *
 find_storage_block( ASStorage *storage, ASStorageID id )
 {	
 	int block_idx = StorageID2BlockIdx(id);
@@ -1434,7 +1434,7 @@ find_storage_block( ASStorage *storage, ASStorageID id )
 	return NULL ;
 }
 
-static inline ASStorageSlot *
+static ASStorageSlot *
 find_storage_slot( ASStorageBlock *block, ASStorageID id )
 {	
 	if( block != NULL ) 
@@ -1449,7 +1449,7 @@ find_storage_slot( ASStorageBlock *block, ASStorageID id )
 	return NULL ;
 }
 
-static inline void 
+static void 
 free_storage_slot( ASStorageBlock *block, ASStorageSlot *slot)
 {
 	slot->flags = 0 ;

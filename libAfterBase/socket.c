@@ -323,7 +323,7 @@ create_fifo( int fd )
 	return fifo;
 }
 
-inline void
+void
 purge_fifo_queue( ASFIFOQueue *fifo )
 {
 	if( fifo )

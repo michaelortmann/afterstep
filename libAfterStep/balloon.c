@@ -472,7 +472,7 @@ static void destroy_asballoon_data (ASBalloon * balloon)
 	}
 }
 
-inline static void
+static void
 set_asballoon_data_text (ASBalloon * balloon, const char *text,
 												 unsigned long encoding)
 {

@@ -202,7 +202,7 @@ ximage2asimage (ASVisual *asv, XImage * xim, unsigned int compression)
 	return picture_ximage2asimage (asv, xim, NULL, compression);
 }
 
-static inline int
+static int
 xim_set_component( register CARD32 *src, register CARD32 value, int offset, int len )
 {
 	register int i ;

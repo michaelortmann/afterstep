@@ -485,7 +485,7 @@ fprintf( stderr, "\n");
 	return True;
 }
 
-static inline int*
+static int*
 checkalloc_diff_aux_data (ASIMStrip *strip, int line) 
 {
 	if (strip->aux_data[line] == NULL)

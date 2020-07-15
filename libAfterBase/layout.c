@@ -60,7 +60,7 @@ create_aslayout( unsigned int dim_x, unsigned int dim_y )
     return layout;
 }
 
-static inline int
+static int
 destroy_layout_row( ASLayoutElem **prow )
 {
 	register ASLayoutElem *pelem = *prow;

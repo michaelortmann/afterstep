@@ -315,7 +315,7 @@ compose_asimage_xml_at_size(ASVisual *asv, ASImageManager *imman, ASFontManager 
 	return im;
 }
 
-inline ASImage *
+ASImage *
 compose_asimage_xml(ASVisual *asv, ASImageManager *imman, ASFontManager *fontman, char *doc_str, ASFlagType flags, int verbose, Window display_win, const char *path)
 {
 	xml_elem_t* doc = xml_parse_doc(doc_str, NULL);

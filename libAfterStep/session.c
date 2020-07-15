@@ -29,7 +29,7 @@
 #include "functions.h"
 #include "session.h"
 
-static inline ASDeskSession *create_desk_session ()
+static ASDeskSession *create_desk_session ()
 {
 	ASDeskSession *session =
 			(ASDeskSession *) safecalloc (1, sizeof (ASDeskSession));
@@ -932,7 +932,7 @@ char *make_session_apps_path (ASSession * session)
 	return apps_path;
 }
 
-static inline char *make_session_filedir (ASSession * session,
+static char *make_session_filedir (ASSession * session,
 																					const char *source,
 																					Bool use_depth, int mode)
 {
@@ -1115,7 +1115,7 @@ set_session_override (ASSession * session, const char *overriding_file,
 	}
 }
 
-inline const char *get_session_override (ASSession * session, int function)
+const char *get_session_override (ASSession * session, int function)
 {
 	if (session) {
 		if (session->overriding_file)

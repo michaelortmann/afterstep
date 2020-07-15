@@ -582,7 +582,7 @@ ASTBarData *create_astbar ()
 	return tbar;
 }
 
-static inline void flush_tbar_backs (ASTBarData * tbar)
+static void flush_tbar_backs (ASTBarData * tbar)
 {
 	register int i;
 
@@ -595,7 +595,7 @@ static inline void flush_tbar_backs (ASTBarData * tbar)
 	set_flags (tbar->state, BAR_FLAGS_REND_PENDING);
 }
 
-static inline void flush_tbar_state_backs (ASTBarData * tbar, int state)
+static void flush_tbar_state_backs (ASTBarData * tbar, int state)
 {
 	if (state < 0 || state > BAR_STATE_NUM)
 		flush_tbar_backs (tbar);
@@ -817,7 +817,7 @@ set_astbar_huesat (ASTBarData * tbar, unsigned int state, int hue, int sat)
 }
 
 
-static inline void
+static void
 set_astile_styles (ASTBarData * tbar, ASTile * tile, int state)
 {
 	register int i;
@@ -1359,7 +1359,7 @@ Bool is_astbar_shaped (ASTBarData * tbar, int state)
 }
 
 
-static inline int
+static int
 trim_astbar_grid_dim (short *dim, int size, int space_left)
 {
 	int l = 0;
@@ -1388,7 +1388,7 @@ trim_astbar_grid_dim (short *dim, int size, int space_left)
 }
 
 
-static inline Bool
+static Bool
 render_astbar_int (ASTBarData * tbar, ASCanvas * pc, ASImage ** pcache,
 									 ASCanvas * origin_canvas)
 {

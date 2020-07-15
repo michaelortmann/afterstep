@@ -831,8 +831,8 @@ GetWindowForClient(AfterShowContext *ctx, AfterShowClient *client,
 
 
 
-static inline AfterShowXScreen *GetWindowScreen (AfterShowXWindow *window) { return window->screen; };
-static inline AfterShowClient *GetClient (AfterShowContext *ctx, int channel)
+static AfterShowXScreen *GetWindowScreen (AfterShowXWindow *window) { return window->screen; };
+static AfterShowClient *GetClient (AfterShowContext *ctx, int channel)
 {
 	if (ctx->clients[channel].fd == 0)
 		return NULL;

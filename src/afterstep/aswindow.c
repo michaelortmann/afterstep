@@ -1104,7 +1104,7 @@ static void stack_transients (ASWindow * asw, ASVector * list)
 	}
 }
 
-static inline void stack_layer_windows (ASLayer * layer, ASVector * list)
+static void stack_layer_windows (ASLayer * layer, ASVector * list)
 {
 	int k;
 	ASWindow **members = PVECTOR_HEAD (ASWindow *, layer->members);
@@ -1381,7 +1381,7 @@ If a sibling and a stack_mode are specified, the window is restacked
 #define OCCLUSION_BELOW		 1
 
 /* Checks if rectangle above is at least partially obscuring client below */
-inline Bool is_rect_overlaping (ASRectangle * above, ASRectangle * below)
+Bool is_rect_overlaping (ASRectangle * above, ASRectangle * below)
 {
 	if (above == NULL)
 		return False;
@@ -1394,7 +1394,7 @@ inline Bool is_rect_overlaping (ASRectangle * above, ASRectangle * below)
 					&& above->y + above->height > below->y);
 }
 
-inline Bool
+Bool
 is_status_overlaping (ASStatusHints * above, ASStatusHints * below)
 {
 	if (above == NULL)
@@ -1408,7 +1408,7 @@ is_status_overlaping (ASStatusHints * above, ASStatusHints * below)
 					&& above->y + above->height > below->y);
 }
 
-inline Bool is_canvas_overlaping (ASCanvas * above, ASCanvas * below)
+Bool is_canvas_overlaping (ASCanvas * above, ASCanvas * below)
 {
 	if (above == NULL)
 		return False;
@@ -1435,7 +1435,7 @@ inline Bool is_canvas_overlaping (ASCanvas * above, ASCanvas * below)
 
 #define IS_OVERLAPING(a,b)    is_canvas_overlaping(a->frame_canvas,b->frame_canvas)
 
-static inline Bool is_overlaping_b (ASWindow * a, ASWindow * b)
+static Bool is_overlaping_b (ASWindow * a, ASWindow * b)
 {
 	int i;
 	ASWindow **sublist;
@@ -1461,7 +1461,7 @@ static inline Bool is_overlaping_b (ASWindow * a, ASWindow * b)
 	return False;
 }
 
-static inline Bool is_overlaping (ASWindow * a, ASWindow * b)
+static Bool is_overlaping (ASWindow * a, ASWindow * b)
 {
 	int i;
 	ASWindow **sublist;
@@ -2014,7 +2014,7 @@ ASWindow *warp_aswindow_list (ASWindowList * list, Bool backwards)
 /********************************************************************************/
 /* window list menus regeneration :                                             */
 /********************************************************************************/
-static inline void
+static void
 ASWindow2func_data (FunctionCode func, ASWindow * asw,
 										FunctionData * fdata, char *scut, Bool icon_name)
 {

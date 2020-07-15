@@ -558,7 +558,7 @@ free_xml_buffer_resources (ASXmlBuffer *xb)
 	}
 }
 
-static inline void
+static void
 realloc_xml_buffer( ASXmlBuffer *xb, int len )
 {
 	if( xb->used + len > xb->allocated ) 

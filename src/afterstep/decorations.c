@@ -887,7 +887,7 @@ estimate_titlebar_size (ASHints * hints, unsigned int *width_ret,
 		*height_ret = height;
 }
 
-inline static ASFlagType fix_background_align (ASFlagType align)
+static ASFlagType fix_background_align (ASFlagType align)
 {
 	ASFlagType new_align = align;
 	/* don't ask why - simply magic :)

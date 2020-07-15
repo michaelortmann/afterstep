@@ -227,7 +227,7 @@ void debugout_print_linestamp(const char *file, const char *func, int line )
 
 
 
-inline void
+void
 nonGNUC_debugout_stub( const char *format, ...)
 {}
 

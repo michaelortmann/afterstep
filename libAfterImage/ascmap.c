@@ -65,7 +65,7 @@
 /***********************************************************************************/
 /* reduced colormap building code :                                                */
 /***********************************************************************************/
-static inline ASMappedColor *new_mapped_color( CARD32 red, CARD32 green, CARD32 blue, CARD32 indexed )
+static ASMappedColor *new_mapped_color( CARD32 red, CARD32 green, CARD32 blue, CARD32 indexed )
 {
 	register ASMappedColor *pnew = malloc( sizeof( ASMappedColor ));
 	if( pnew != NULL )
@@ -228,7 +228,7 @@ fix_colorindex_shortcuts( ASSortedColorHash *index )
 
 
 
-static inline void
+static void
 add_colormap_item( register ASColormapEntry *pentry, ASMappedColor *pelem, int cmap_idx )
 {
 	pentry->red   = pelem->red ;

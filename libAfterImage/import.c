@@ -1348,7 +1348,7 @@ xpm2ASImage( const char * path, ASImageImportParams *params )
 #endif 			/* XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM XPM */
 /***********************************************************************************/
 
-static inline void
+static void
 apply_gamma( register CARD8* raw, register CARD8 *gamma_table, unsigned int width )
 {
 	if( gamma_table )

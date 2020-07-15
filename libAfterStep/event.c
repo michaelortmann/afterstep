@@ -202,7 +202,7 @@ void sync_event_queue (Bool forget)
 /****************************************************************************
  * Records the time of the last processed event. Used in XSetInputFocus
  ****************************************************************************/
-inline Time stash_event_time (XEvent * xevent)
+Time stash_event_time (XEvent * xevent)
 {
 	if (xevent->type < LASTEvent) {
 		register Time *ptime =
@@ -241,7 +241,7 @@ inline Time stash_event_time (XEvent * xevent)
 }
 
 /* here we will determine what screen event occured on : */
-inline ScreenInfo *query_event_screen (register XEvent * event)
+ScreenInfo *query_event_screen (register XEvent * event)
 {																/* stub since stable AS does not support multiscreen handling in one process */
 	return ASDefaultScr;
 }

@@ -188,14 +188,3 @@
 #endif
 #endif
 
-/* Allows gcc users to use inline, doesn't cause problems for others. */
-#ifndef __GNUC__
-#define  AFTER_INLINE  /* nothing */
-#else
-#if defined(__GNUC__) && !defined(inline)
-#define AFTER_INLINE __inline__
-#else
-#define AFTER_INLINE inline
-#endif /* __GNUC__ && !(inline) */
-#endif /* !(__GNUC__) */
-

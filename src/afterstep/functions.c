@@ -941,7 +941,7 @@ void moveresize_func_handler (FunctionData * data, ASEvent * event,
 }
 
 
-static inline int
+static int
 make_scroll_pos (int val, int unit, int curr, int max, int size)
 {
 	int pos = curr;
@@ -961,7 +961,7 @@ make_scroll_pos (int val, int unit, int curr, int max, int size)
 	return pos;
 }
 
-static inline int
+static int
 make_edge_scroll (int curr_pos, int curr_view, int view_size, int max_view,
 									int edge_scroll)
 {

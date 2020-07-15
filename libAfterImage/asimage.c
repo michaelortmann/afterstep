@@ -94,14 +94,14 @@ ASVisual *get_default_asvisual()
 static CARD8 *__as_compression_buffer = NULL ;
 static size_t __as_compression_buffer_len = 0;   /* allocated size */
 
-static inline CARD8* get_compression_buffer( size_t size )
+static CARD8* get_compression_buffer( size_t size )
 {
 	if( size > __as_compression_buffer_len )
  		__as_compression_buffer_len = (size+1023)&(~0x03FF) ;
 	return (__as_compression_buffer = realloc( __as_compression_buffer, __as_compression_buffer_len ));
 }
 
-static inline void release_compression_buffer( CARD8 *ptr )
+static void release_compression_buffer( CARD8 *ptr )
 {
 	/* do nothing so far */
 }
@@ -481,7 +481,7 @@ store_asimage( ASImageManager* imageman, ASImage *im, const char *name )
 	return res ;
 }
 
-inline ASImage *
+ASImage *
 query_asimage( ASImageManager* imageman, const char *name )
 {
 	ASImage *im = NULL ;
@@ -532,7 +532,7 @@ dup_asimage( ASImage* im )
 	return NULL ;
 }
 
-inline int
+int
 release_asimage( ASImage *im )
 {
 	int res = -1 ;
@@ -605,7 +605,7 @@ forget_asimage_name( ASImageManager *imman, const char *name )
     }
 }
 
-inline int
+int
 safe_asimage_destroy( ASImage *im )
 {
 	int res = -1 ;

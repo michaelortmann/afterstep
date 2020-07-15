@@ -227,7 +227,7 @@ copy_component( register CARD32 *src, register CARD32 *dst, int *unused, int len
 #endif
 }
 
-static inline int
+static int
 set_component( register CARD32 *src, register CARD32 value, int offset, int len )
 {
 	register int i ;
@@ -238,7 +238,7 @@ set_component( register CARD32 *src, register CARD32 value, int offset, int len 
 
 
 
-static inline void
+static void
 divide_component( register CARD32 *src, register CARD32 *dst, CARD16 ratio, int len )
 {
 	register int i = 0;
@@ -613,7 +613,7 @@ stop_image_output( ASImageOutput **pimout )
 }
 
 /* diffusingly combine src onto self and dst, and rightbitshift src by quantization shift */
-static inline void
+static void
 best_output_filter( register CARD32 *line1, register CARD32 *line2, int unused, int len )
 {/* we carry half of the quantization error onto the surrounding pixels : */
  /*        X    7/16 */
@@ -641,7 +641,7 @@ best_output_filter( register CARD32 *line1, register CARD32 *line2, int unused, 
 	}
 }
 
-static inline void
+static void
 fine_output_filter( register CARD32 *src, register CARD32 *dst, short ratio, int len )
 {/* we carry half of the quantization error onto the following pixel and store it in dst: */
 	register int i = 0;
@@ -686,7 +686,7 @@ fine_output_filter( register CARD32 *src, register CARD32 *dst, short ratio, int
 	}
 }
 
-static inline void
+static void
 fast_output_filter( register CARD32 *src, register CARD32 *dst, short ratio, int len )
 {/*  no error diffusion whatsoever: */
 	register int i = 0;
@@ -723,7 +723,7 @@ fast_output_filter( register CARD32 *src, register CARD32 *dst, short ratio, int
 	}
 }
 
-static inline void
+static void
 fine_output_filter_mod( register CARD32 *data, int unused, int len )
 {/* we carry half of the quantization error onto the following pixel : */
 	register int i ;
@@ -948,7 +948,7 @@ decode_image_scanline_normal( ASImageDecoder *imdec )
 	++(imdec->next_line);
 }
 
-static inline void
+static void
 draw_solid_bevel_line( register ASScanline *scl, int alt_left, int hi_end, int lo_start, int alt_right,
 					   ARGB32 bevel_color, ARGB32 shade_color, ARGB32 hi_corner, ARGB32 lo_corner )
 {
@@ -976,7 +976,7 @@ draw_solid_bevel_line( register ASScanline *scl, int alt_left, int hi_end, int l
 			}
 		}
 }
-static inline void
+static void
 draw_fading_bevel_sides( ASImageDecoder *imdec,
 					     int left_margin, int left_delta,
 					     int right_delta, int right_margin )
@@ -1013,7 +1013,7 @@ draw_fading_bevel_sides( ASImageDecoder *imdec,
 		}
 }
 
-static inline void
+static void
 draw_transp_bevel_sides( ASImageDecoder *imdec,
 					     int left_margin, int left_delta,
 					     int right_delta, int right_margin )
@@ -1044,7 +1044,7 @@ draw_transp_bevel_sides( ASImageDecoder *imdec,
 }
 
 
-static inline void
+static void
 draw_transp_bevel_line ( ASImageDecoder *imdec,
 					     int left_delta, int right_delta,
 						 CARD32 ca,
@@ -1245,7 +1245,7 @@ decode_image_scanline_beveled( ASImageDecoder *imdec )
 
 /* *********************************************************************/
 /*						  ENCODER : 								  */
-inline static void
+static void
 tile_ximage_line( XImage *xim, unsigned int line, int step, int range )
 {
 	register int i ;
@@ -1414,7 +1414,7 @@ LOCAL_DEBUG_CALLER_OUT( "imout->next_line = %d, imout->im->height = %d", imout->
 	imout->next_line += imout->bottom_to_top;
 }
 
-inline static void
+static void
 tile_argb32_line( ARGB32 *data, unsigned int line, int step, unsigned int width, unsigned int height, int range )
 {
 	register int i ;

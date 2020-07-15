@@ -39,7 +39,7 @@
 static ASHashItem*  deallocated_mem[DEALLOC_CACHE_SIZE+10] ;
 static unsigned int deallocated_used = 0 ;
 
-static inline void
+void
 free_ashash_item( ASHashItem *item )
 {
 
@@ -533,7 +533,7 @@ remove_curr_hash_item (ASHashIterator * iterator, Bool destroy)
 		}
 }
 
-inline ASHashableValue
+ASHashableValue
 curr_hash_value (ASHashIterator * iterator)
 {
 	if (iterator)
@@ -544,7 +544,7 @@ curr_hash_value (ASHashIterator * iterator)
 	return (ASHashableValue) ((char *)NULL);
 }
 
-inline void         *
+void         *
 curr_hash_data (ASHashIterator * iterator)
 {
 	if (iterator)

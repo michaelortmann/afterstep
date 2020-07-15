@@ -92,7 +92,7 @@ static void free_asmenu_item (ASMenuItem * item)
 
 void destroy_asmenu (ASMenu ** pmenu);
 
-static inline void close_asmenu_submenu (ASMenu * menu)
+static void close_asmenu_submenu (ASMenu * menu)
 {
 	LOCAL_DEBUG_CALLER_OUT ("top(%p)->supermenu(%p)->menu(%p)->submenu(%p)",
 													ASTopmostMenu, menu->supermenu, menu,
@@ -939,7 +939,7 @@ void set_asmenu_scroll_position (ASMenu * menu, int pos)
 	render_asmenu_bars (menu, False);
 }
 
-static inline void run_item_submenu (ASMenu * menu, int item_no)
+static void run_item_submenu (ASMenu * menu, int item_no)
 {
 	ASMenuItem *item = &(menu->items[item_no]);
 	LOCAL_DEBUG_CALLER_OUT ("%p, %d", menu, item_no);

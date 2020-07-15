@@ -61,7 +61,6 @@ extern "C" {
 #define MAX(a,b)            ((a)>(b) ? (a) : (b))
 #define AS_ASSERT(p)            ((p)==0)
 #define AS_ASSERT_NOTVAL(p,v)   ((p)!=(v))
-#define inline
 
 #endif
 

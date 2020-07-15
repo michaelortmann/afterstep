@@ -720,7 +720,7 @@ read_xcf_tiles_rle( XcfImage *xcf_im, FILE *fp, XcfTile *head )
 
 /* now the fun part of actually decoding ARGB values : */
 
-static inline void
+static void
 store_colors( CARD8 *data, ASScanline *curr_buf, int bpp, int comp, int offset_x, int width )
 {
 	register int i ;

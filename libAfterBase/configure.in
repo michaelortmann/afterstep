@@ -148,7 +148,6 @@ fi
 dnl# some standard checks :
 dnl# let's check for endiannes of our box
 AC_C_BIGENDIAN
-AC_C_INLINE
 
 dnl# Check for X :
 dnl# check for X, if top level configure script did not do that yet :
